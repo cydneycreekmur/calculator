@@ -26,7 +26,7 @@ long double subtract(long double x, long double y) {
  * multiplication
  * @author cyd
  */
-long double multiplication(long double x, long double y) {
+long double multiply(long double x, long double y) {
     return x * y;
 }
 
