@@ -1,0 +1,17 @@
+# Build folders
+build/
+Debug/
+Release/
+
+# Compiled binaries
+*.exe
+*.o
+*.obj
+*.pdb
+
+# Visual Studio / VSCode files
+.vscode/
+*.user
+*.suo
+*.log
+*tasks.json
