@@ -1,5 +1,25 @@
+<<<<<<< HEAD
 # Ignore VS Code settings
 .vscode/
 
 # Ignore build output
 build/
+=======
+# Build folders
+build/
+Debug/
+Release/
+
+# Compiled binaries
+*.exe
+*.o
+*.obj
+*.pdb
+
+# Visual Studio / VSCode files
+.vscode/
+*.user
+*.suo
+*.log
+*tasks.json
+>>>>>>> 47f576cf3a492a6f2d05584bffc95603baf75b58
