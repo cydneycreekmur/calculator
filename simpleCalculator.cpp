@@ -9,34 +9,35 @@ long double e = exp(1.0);
 // need functions for arithmetic
 
 /**
- * addition
- * @author cyd
+ * Addition functions
+ * @author Cydney
  */
 long double add(long double x, long double y) {
     return x + y;
 }
 /**
- * subtraction
- * @author cyd
+ * Subtraction functions
+ * @author Cydney
  */ 
 long double subtract(long double x, long double y) {
     return x - y;
 }
 /**
- * multiplication
- * @author cyd
+ * Multiplication function
+ * @author Cydney
  */
 long double multiply(long double x, long double y) {
     return x * y;
 }
 
 /**
- * division
+ * Division
+ * @author Cydney
  */
 
 /**
- * logs
- * @author cyd
+ * Log functions
+ * @author Cydney
  */
 long double log_10(long double x) {
     return log10(x);
