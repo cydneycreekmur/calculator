@@ -42,14 +42,17 @@ long double divide(long double x, long double y) {
  * Log functions
  * @author Cydney
  */
+// log (base 10)
 long double log_10(long double x) {
     return log10(x);
 }
 
+// natural log (base e)
 long double ln(long double x) {
     return log(x);
 }
 
+// log base b of x
 long double log_b(long double b, long double x) {
     return log(x) / log(b);
 }
