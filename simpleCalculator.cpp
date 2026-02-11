@@ -35,10 +35,6 @@ long double multiplication(long double x, long double y) {
  */
 
 /**
- * powers
- */
-
-/**
  * logs
  * @author cyd
  */
@@ -53,18 +49,6 @@ long double ln(long double x) {
 long double log_b(long double b, long double x) {
     return log(x) / log(b);
 }
-
-/**
- * roots
- */
-
-/**
- * euler
- */
-
-// mult - Cyd
-// div - Cyd
-// log - Cyd
 
 /**
  * Power function x ^ y
