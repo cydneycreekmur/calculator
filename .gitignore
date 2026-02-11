@@ -21,5 +21,9 @@ Release/
 *.user
 *.suo
 *.log
+<<<<<<< HEAD
+*.json
+=======
 *tasks.json
 >>>>>>> 47f576cf3a492a6f2d05584bffc95603baf75b58
+>>>>>>> f86922f453253c942c014dade231d12b87982e88

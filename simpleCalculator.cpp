@@ -1,11 +1,11 @@
 #include <iostream>
+#include <string>
 #include <cmath>
 
 using namespace std;
 
 long double pi = acos(-1);
 long double e = exp(1.0);
-
 // need functions for arithmetic
 
 /**
@@ -35,10 +35,6 @@ long double multiply(long double x, long double y) {
  */
 
 /**
- * powers
- */
-
-/**
  * logs
  * @author cyd
  */
@@ -55,13 +51,25 @@ long double log_b(long double b, long double x) {
 }
 
 /**
- * roots
+ * Power function x ^ y
+ * @author Andrew
+ */
+long double power(long double x, long double y){
+    if (y == 1){
+        return x;
+    }
+    return x * power(x, y-1);
+}
+
+ /**
+ * Square Root function x^(1/y)
+ * @author Andrew
  */
 
-/**
- * euler
+ /**
+ * Euler function (e^x)
+ * @author Andrew
  */
-
 
 int main() {
     // initialize numbers and sum variables
@@ -71,5 +79,6 @@ int main() {
     cin >> x;
     cout << "Type another number: ";
     cin >> y;
+    cout << "The number " + to_string(static_cast<double>(x)) + " to the power of " + to_string(static_cast<double>(y)) + " is " + to_string(static_cast<double>(power(x, y))) + "\n";
     cout << "The sum is " << x + y << "\n";
 }
