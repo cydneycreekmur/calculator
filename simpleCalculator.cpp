@@ -62,14 +62,32 @@ long double power(long double x, long double y){
 }
 
  /**
- * Square Root function x^(1/y)
+ * Root function x^(1/y)
  * @author Andrew
  */
+long double root(long double x, long double y, long double guess = 1.0L, long double eps = 1e-20L) {
+    // Calculate next approximation using Newton-Raphson
+    long double nextGuess = (1.0L / y) * ((y - 1) * guess + x / power(guess, y - 1));
+
+    // Base case: if difference is small enough
+    if (fabsl(nextGuess - guess) < eps) {
+        return nextGuess;
+    }
+
+    // Recursive call
+    return root(x, y, nextGuess, eps);
+}
 
  /**
  * Euler function (e^x)
  * @author Andrew
  */
+long double euler(long double y){
+    if (y == 1){
+        return e;
+    }
+    return e * euler(y-1);
+}
 
 int main() {
     // initialize numbers and sum variables
@@ -81,4 +99,5 @@ int main() {
     cin >> y;
     cout << "The number " + to_string(static_cast<double>(x)) + " to the power of " + to_string(static_cast<double>(y)) + " is " + to_string(static_cast<double>(power(x, y))) + "\n";
     cout << "The sum is " << x + y << "\n";
+    cout << "The root of " << y << " in " << x << " is: "<<root(x, y)<<"\n";
 }
