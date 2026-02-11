@@ -5,24 +5,50 @@ using namespace std;
 
 double pi = acos(-1);
 double e = exp(1.0);
+
 // need functions for arithmetic
 
-// addition
+/**
+ * addition
+ * @author cyd
+ */
 double add(double x, double y) {
     return x + y;
 }
-// subtraction
+/**
+ * subtraction
+ * @author cyd
+ */ 
 double subtract(double x, double y) {
     return x - y;
 }
-// mult
+/**
+ * multiplication
+ * @author cyd
+ */
 
+/**
+ * division
+ */
 
-// div
-// power
-// log
-// sqrt
-// euler
+/**
+ * powers
+ */
+
+/**
+ * logs
+ * @author cyd
+ */
+
+/**
+ * roots
+ */
+
+/**
+ * euler
+ * @author cyd
+ */
+
 
 int main() {
     // initialize numbers and sum variables
