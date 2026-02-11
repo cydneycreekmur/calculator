@@ -15,13 +15,11 @@ double add(double x, double y) {
 double subtract(double x, double y) {
     return x - y;
 }
-// mult
-
-
-// div
-// power
-// log
-// sqrt
+// mult - Cyd
+// div - Cyd
+// log - Cyd
+// power - Andrew
+// sqrt - Andrew
 // euler
 
 int main() {

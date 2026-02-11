@@ -14,4 +14,4 @@ Release/
 *.user
 *.suo
 *.log
-*tasks.json
+*.json
