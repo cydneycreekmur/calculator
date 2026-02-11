@@ -34,6 +34,9 @@ long double multiply(long double x, long double y) {
  * Division
  * @author Cydney
  */
+long double divide(long double x, long double y) {
+    return x / y;
+}
 
 /**
  * Log functions
