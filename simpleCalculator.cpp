@@ -96,6 +96,20 @@ long double euler(long double y){
     return e * euler(y-1);
 }
 
+/**
+ * ParseExpression Function
+ * 
+ * @author Cydney
+ */
+long double parseExpression(string expression){};
+
+/**
+ * ParseEquation Function
+ * @author Andrew
+ */
+long double parseEquation(string equation){};
+
+
 int main() {
     // initialize numbers and sum variables
     long double x, y;
