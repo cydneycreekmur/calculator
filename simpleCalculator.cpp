@@ -2,6 +2,8 @@
 #include <string>
 #include <cmath>
 #include <algorithm>
+#include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -109,11 +111,11 @@ long double parseExpression(string expression){};
  * ParseEquation Function
  * @author Andrew
  */
-long double parseEquation(string equation){
+vector<long double> parseEquation(string equation){
     
     if (count(equation.begin(), equation.end(), '=') > 2) {
         cout << "Please provide a valid Equation (Too many ='s in the Equation)\n";
-        return 0;
+        return {};
     }
 
     for (char &c : equation){
@@ -146,8 +148,7 @@ long double parseEquation(string equation){
         y_equ = left_side;
     }
 
-    // Make instructions 
-    string instructions = "";
+    stack<string> equ;
 
 }
 
