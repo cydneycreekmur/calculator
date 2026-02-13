@@ -118,10 +118,6 @@ vector<long double> parseEquation(string equation){
         return {};
     }
 
-    for (char &c : equation){
-        c = tolower(c)
-    }
-
     string left_side = "";
     string right_side = "";
 
@@ -150,13 +146,68 @@ vector<long double> parseEquation(string equation){
 
     stack<string> equ;
 
+
+
+}
+
+/**
+ * Sanitize Negatives Function:
+ * turns subtractions into + negative numbers
+ * @author Andrew
+ */
+string negative_sanitize(string equ){
+    string new_equ = "";
+    for (int i = 0; i < equ.length(); i++){
+        if (equ[i] == '-'){
+            if (i == 0){
+                new_equ += equ[i];
+            }else if (equ[i-1] == '+'){
+                new_equ += equ[i];
+            }else{
+                new_equ += '+';
+                new_equ += equ[i];
+            }
+        }else{
+            new_equ += equ[i];
+        }
+    }
+    return new_equ;
+}
+
+string simplify(string equ){
+
+    string new_equ = "";
+
+
+
+
+    return new_equ;
+
+}
+
+vector<string> splitString(const string& text, const string& delimiter) {
+    vector<string> parts;
+    size_t start = 0;
+    size_t end = text.find(delimiter);
+
+    while (end != string::npos) {
+        parts.push_back(text.substr(start, end - start));
+        start = end + delimiter.length();
+        end = text.find(delimiter, start);
+    }
+
+    parts.push_back(text.substr(start));
+    return parts;
 }
 
 
 int main() {
+
+    cout << negative_sanitize("-3(3-4+5-4-4y(5-3))--2") + "\n";
+
+    /*
     // initialize numbers and sum variables
     long double x, y;
-
     cout << "Type a number: ";
     cin >> x;
     cout << "Type another number: ";
@@ -164,4 +215,5 @@ int main() {
     cout << "The number " + to_string(static_cast<double>(x)) + " to the power of " + to_string(static_cast<double>(y)) + " is " + to_string(static_cast<double>(power(x, y))) + "\n";
     cout << "The sum is " << x + y << "\n";
     cout << "The root of " << y << " in " << x << " is: "<<root(x, y)<<"\n";
+    */    
 }
