@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,6 +16,7 @@ long double e = exp(1.0);
 long double add(long double x, long double y) {
     return x + y;
 }
+
 /**
  * Subtraction functions
  * @author Cydney
@@ -107,7 +109,47 @@ long double parseExpression(string expression){};
  * ParseEquation Function
  * @author Andrew
  */
-long double parseEquation(string equation){};
+long double parseEquation(string equation){
+    
+    if (count(equation.begin(), equation.end(), '=') > 2) {
+        cout << "Please provide a valid Equation (Too many ='s in the Equation)\n";
+        return 0;
+    }
+
+    for (char &c : equation){
+        c = tolower(c)
+    }
+
+    string left_side = "";
+    string right_side = "";
+
+    // First string pass
+    int count = 0;
+    for (char letter : equation){
+        if (letter == '='){
+            count += 1;
+        }else if (count == 0){
+            left_side += letter;
+        }else{
+            right_side += letter;
+        }
+    }
+
+    // check for which side has the y and which has the x
+    string x_equ = "";
+    string y_equ = "";
+    if (left_side.find('x') == string::npos){
+        x_equ = left_side;
+        y_equ = right_side;
+    }else{
+        x_equ = right_side;
+        y_equ = left_side;
+    }
+
+    // Make instructions 
+    string instructions = "";
+
+}
 
 
 int main() {
