@@ -157,16 +157,26 @@ vector<long double> parseEquation(string equation){
  */
 string negative_sanitize(string equ){
     string new_equ = "";
+    int neg_counter = 0;
+
     for (int i = 0; i < equ.length(); i++){
         if (equ[i] == '-'){
-            if (i == 0){
-                new_equ += equ[i];
-            }else if (equ[i-1] == '+'){
-                new_equ += equ[i];
-            }else{
+            neg_counter += 1; // increase the negative count
+        }else if (equ[i] == '+' && neg_counter > 0){
+            continue;
+        }else if (neg_counter > 0){
+            if (neg_counter % 2 == 0){
                 new_equ += '+';
-                new_equ += equ[i];
+            }else{
+                if (i == 1){
+                    new_equ += '-';
+                }else{
+                    new_equ += '+';
+                    new_equ += '-';
+                }
             }
+            new_equ += equ[i];
+            neg_counter = 0;
         }else{
             new_equ += equ[i];
         }
@@ -177,9 +187,7 @@ string negative_sanitize(string equ){
 string simplify(string equ){
 
     string new_equ = "";
-
-
-
+    
 
     return new_equ;
 
