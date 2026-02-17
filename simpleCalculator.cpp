@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <vector>
 #include <stack>
+#include <bits/stdc++.h>
+#include <cctype>
 
 using namespace std;
 
@@ -184,6 +186,43 @@ string negative_sanitize(string equ){
     return new_equ;
 }
 
+/**
+ * Sanitize Multiplication Function:
+ * turns implicit multiplication into *
+ * @author Andrew
+ */
+string multiply_sanitize(string equ){
+    string new_equ = "";
+
+    for (int i = 0; i < equ.length(); i++){
+
+        if (equ[i] == '('){
+
+            // checking for implicit multiplication on the left side of (
+            if (i != 0 && (isdigit(equ[i-1]) || isalpha(equ[i-1]))){ 
+                new_equ += '*';
+            }
+            new_equ += '(';
+        }else{
+
+            if (i != 0){
+
+                // Checking for )alpha or )num or numAlpha or alphaNum
+                bool digitAfterLetter = isdigit(equ[i]) && isalpha(equ[i-1]);
+                bool letterAfterDigit = isdigit(equ[i-1]) && isalpha(equ[i]);
+                bool parenFollowedByAlphaNum = equ[i-1] == ')' && (isdigit(equ[i]) || isalpha(equ[i]));
+                
+                if (digitAfterLetter || letterAfterDigit || parenFollowedByAlphaNum) {
+                    new_equ += '*';
+                }
+            }
+            new_equ += equ[i];
+        }
+    }
+
+    return new_equ;
+}
+
 string simplify(string equ){
 
     string new_equ = "";
@@ -211,7 +250,7 @@ vector<string> splitString(const string& text, const string& delimiter) {
 
 int main() {
 
-    cout << negative_sanitize("-3(3-4+5-4-4y(5-3))--2") + "\n";
+    cout << multiply_sanitize(negative_sanitize("-3(3-4+5-4-4y(5-3))--2")) + "\n";
 
     /*
     // initialize numbers and sum variables
