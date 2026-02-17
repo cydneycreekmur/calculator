@@ -223,6 +223,55 @@ string multiply_sanitize(string equ){
     return new_equ;
 }
 
+/**
+ * Sanitize Operator Function:
+ * Checks for multiple operators and condenses to 1 (+, *, /, ^, =)
+ * @author Andrew
+ */
+string operator_sanitize(string equ) {
+    vector<char> operators = {'+', '*', '/', '^', '='};
+    string new_equ = "";
+    char last_char = '\0';
+
+    for (char c : equ) {
+        bool is_operator = find(operators.begin(), operators.end(), c) != operators.end();
+        
+        // Skip if this is a duplicate consecutive operator
+        if (is_operator && c == last_char) {
+            continue;
+        }
+        
+        new_equ += c;
+        last_char = c;
+    }
+
+    return new_equ;
+}
+
+/**
+ * Parenthesis Check Function:
+ * Checks to see if all parenthesis are correctly closed. if not, return Bool False
+ * @author Andrew
+ */
+bool parenthesis_check(string equ) {
+    int count = 0;
+    for (char c : equ) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
+            // If count goes negative, we have a closing paren without opening
+            if (count < 0) {
+                return false;
+            }
+        }
+    }
+    
+    // If count is 0, all parens are balanced
+    return count == 0;
+}
+
+
 string simplify(string equ){
 
     string new_equ = "";
@@ -250,7 +299,7 @@ vector<string> splitString(const string& text, const string& delimiter) {
 
 int main() {
 
-    cout << multiply_sanitize(negative_sanitize("-3(3-4+5-4-4y(5-3))--2")) + "\n";
+    cout << multiply_sanitize(negative_sanitize(operator_sanitize("-3(3-4++++5-4-4****y(5-3))--2"))) + "\n";
 
     /*
     // initialize numbers and sum variables
