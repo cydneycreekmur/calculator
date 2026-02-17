@@ -281,19 +281,28 @@ string simplify(string equ){
 
 }
 
-vector<string> splitString(const string& text, const string& delimiter) {
-    vector<string> parts;
-    size_t start = 0;
-    size_t end = text.find(delimiter);
-
-    while (end != string::npos) {
-        parts.push_back(text.substr(start, end - start));
-        start = end + delimiter.length();
-        end = text.find(delimiter, start);
+/**
+ * Split Function:
+ * Splits a string by a delimiter character and returns a vector of substrings
+ * @author Andrew
+ */
+vector<string> split(string str, char delimiter) {
+    vector<string> result;
+    string current = "";
+    
+    for (char c : str) {
+        if (c == delimiter) {
+            result.push_back(current);
+            current = "";
+        } else {
+            current += c;
+        }
     }
-
-    parts.push_back(text.substr(start));
-    return parts;
+    
+    // Add the last substring
+    result.push_back(current);
+    
+    return result;
 }
 
 
