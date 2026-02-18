@@ -345,16 +345,6 @@ bool parenthesis_check(string equ) {
     return count == 0;
 }
 
-
-string simplify(string equ){
-
-    string new_equ = "";
-    
-
-    return new_equ;
-
-}
-
 /**
  * Split Function:
  * Splits a string by a delimiter character and returns a vector of substrings
