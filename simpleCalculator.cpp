@@ -11,7 +11,43 @@ using namespace std;
 
 long double pi = acos(-1);
 long double e = exp(1.0);
-// need functions for arithmetic
+
+/**
+ * enum for parsing expressions
+ * @author Cydney
+ */
+enum TokenType {
+    INT,
+    FLOAT,
+    OPERATOR,
+    IDENTIFIER,
+    LEFT_PARENT,
+    RIGHT_PARENT
+};
+
+/**
+ * class for token objects
+ * @author Cydney
+ */
+class Token {
+public:
+    TokenType type;
+    string value;
+
+    Token(TokenType t, string v)
+        : type(t), value(v) {}
+
+    static const vector<Token> OPERATORS;
+};
+
+// use this for checking operators
+const vector<Token> Token::OPERATORS = {
+    {OPERATOR, "+"},
+    {OPERATOR, "-"},
+    {OPERATOR, "*"},
+    {OPERATOR, "/"},
+    {OPERATOR, "="}
+};
 
 /**
  * Addition functions
@@ -103,11 +139,49 @@ long double euler(long double y){
 }
 
 /**
- * ParseExpression Function
- * 
+ * Tokenizer
+ * Use for expressions and equations before parsing
  * @author Cydney
  */
-long double parseExpression(string expression){};
+vector<Token> tokenize(const string& expression) {
+    vector<Token> tokens;
+
+    
+
+    /**string current = "";
+    
+    for (char c : str) {
+        if (c == delimiter) {
+            result.push_back(current);
+            current = "";
+        } else {
+            current += c;
+        }
+    }
+    
+    // Add the last substring
+    result.push_back(current);
+    
+    return result;*/
+}
+
+/**
+ * ParseExpression Function
+ * Will solve an expression with no variables or known variables
+ * @author Cydney
+ */
+long double parseExpressionSolve(vector<Token> tokens){
+
+};
+
+/**
+ * ParseExpression Function
+ * Will simplify an expression with unknown variables
+ * @author Cydney
+ */
+vector<long double> parseExpressionSimplify(vector<Token> tokens){
+
+};
 
 /**
  * ParseEquation Function
